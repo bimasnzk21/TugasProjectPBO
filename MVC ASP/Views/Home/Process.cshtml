@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Riwayat Data";
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Username</th>
+            <th scope="col">Usia</th>
+            <th scope="col">Jenis Perawatan</th>
+            <th scope="col">Tanggal Perawatan</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Hapus</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var data = (List<UserModel>)ViewData["data"]!;
+            foreach (var user in data)
+            {
+                <tr>
+                    <th scope="row">@user.Id</th>
+                    <td>@user.Username</td>
+                    <td>@user.Usia</td>
+                    <td>@user.Jenis</td>
+                    <td>@user.Tanggal</td>
+                    <td>
+                        @Html.ActionLink("Ubah", "Edit", new { Id = @user.Id, Username = @user.Username, Usia = @user.Usia, Jenis_Perawatan = @user.Jenis, Tanggal_Perawatan = @user.Tanggal}, new {@class = "btn btn-success"})
+                    </td>
+                    <td>
+                        @Html.ActionLink("Hapus", "DeleteUser", new { Id = @user.Id}, new {@class = "btn btn-danger", onclick ="return confirm('Apakah anda yakin ingin menghapus user ini?')" })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

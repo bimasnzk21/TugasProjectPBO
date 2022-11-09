@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Update User";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@model MVC_ASP.Models.UserModel
+<form asp-controller="Home" asp-action="UpdateUser">
+    <div class="form-group">
+        @*<label asp-for="Id">ID</label>*@
+        <input asp-for="Id" type="text" class="form-control" id="Id" hidden>
+        <label asp-for="Username">Nama Pelanggan</label>
+        <input asp-for="Username" type="text" class="form-control" id="Username">
+        <label asp-for="Usia">Usia</label>
+        <input asp-for="Usia" type="text" class="form-control" id="Usia">
+        <label asp-for="Jenis">Jenis Perawatan</label>
+        <input asp-for="Jenis" type="text" class="form-control" id="Jenis">
+        <label asp-for="Tanggal">Tanggal Perawatan</label>
+        <input asp-for="Tanggal" type="text" class="form-control" id="Tanggal">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
